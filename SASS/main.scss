@@ -1,0 +1,23 @@
+$border: 2px solid black;
+
+.row {
+    border: $border;
+}
+.text {
+    text-align: center;
+    font-family: 'Satisfy', cursive;
+    padding: 1em;
+}
+#button-row {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+}
+button {
+    margin: 10px;
+}
+#giphy-zone {
+    min-height: 35vh;
+}
