@@ -10,8 +10,9 @@ $('button').on('click', function() {
     $.get(query).then(function(response) {
         var rData = response.data;
         for (let j = 0; j < rData.length; j++) {
-            
-            console.log(rData[j].url);
+            var giphyURL = rData[j].url;
+            $('#giphy-home').append('<img src="' + giphyURL + '">');
+            // console.log();
         }
     });
 });
