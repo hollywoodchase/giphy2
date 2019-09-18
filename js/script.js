@@ -10,9 +10,27 @@ $('button').on('click', function() {
     $.get(query).then(function(response) {
         var rData = response.data;
         for (let j = 0; j < rData.length; j++) {
-            var giphyURL = rData[j].url;
-            $('#giphy-home').append('<img src="' + giphyURL + '">');
-            // console.log();
+            var giphyURL = rData[j].images.original.url;
+            var stillURL = rData[j].images.original_still.url;
+            
+            var rating = rData[j].rating;
+            $('#giphy-home').append('<img src="' + stillURL + '" data-still="' + stillURL + '" data-animate="' + giphyURL + '" data-state="still" class="gif"><br><h3>Rating: ' + rating + '</h3><br>');
         }
+        $('.gif').on('click', function() {
+            var state = $(this).attr('data-state');
+            if (state === "still") {
+                $(this).attr({
+                    src: $(this).attr('data-animate'),
+                    'data-state': 'animate'
+                });
+            }
+            if (state === "animate") {
+                $(this).attr({
+                    src: $(this).attr('data-still'),
+                    'data-state': 'still'
+                });
+            }
+        });
     });
+    
 });
