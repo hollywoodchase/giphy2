@@ -4,7 +4,7 @@ for (let i = 0; i < greatBooks.length; i++) {
     $('#buttons').append('<button class="btn btn-outline-info">' + greatBooks[i] + '</button>');
 }
 
-$('button').on('click', function() {
+var bookButtonPush = function() {
     var query = "https://api.giphy.com/v1/gifs/search?q=" + this.innerHTML + "&api_key=aORSyh3OYX52nRTFnKFPMTC6ijlqSOee&limit=5";
 
     $.get(query).then(function(response) {
@@ -33,4 +33,15 @@ $('button').on('click', function() {
         });
     });
     
+}
+
+$('#add-button').on('click', function() {
+    event.preventDefault();
+    var searchText = $('#search-text').val().trim();
+    greatBooks.push(searchText);
+    $('#buttons').append('<button class="btn btn-outline-info">' + searchText + '</button>');
+    $('#search-text').val("");
+    $('button').on('click', bookButtonPush);
 });
+
+$('button').on('click', bookButtonPush);

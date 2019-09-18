@@ -1,17 +1,15 @@
 .row {
-  border: 2px solid black; }
-
-.text {
-  text-align: center;
-  font-family: 'Satisfy', cursive;
-  padding: 1em; }
-
-#button-row {
+  border: 2px solid black;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1em 0; }
+
+.text {
+  text-align: center;
+  font-family: 'Satisfy', cursive;
+  padding: .5em; }
 
 button {
   margin: 10px; }
