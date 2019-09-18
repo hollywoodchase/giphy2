@@ -5,7 +5,7 @@ for (let i = 0; i < greatBooks.length; i++) {
 }
 
 $('button').on('click', function() {
-    var query = "http://api.giphy.com/v1/gifs/search?q=" + this.innerText + "&api_key=aORSyh3OYX52nRTFnKFPMTC6ijlqSOee&limit=5";
+    var query = "https://api.giphy.com/v1/gifs/search?q=" + this.innerText + "&api_key=aORSyh3OYX52nRTFnKFPMTC6ijlqSOee&limit=5";
 
     $.get(query).then(function(response) {
         var rData = response.data;
